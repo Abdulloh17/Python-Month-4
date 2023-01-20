@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
     <a href="{% url 'main-page' %}">Главная страница</a>
     <a href="{% url 'contacts-page' %}">Контакты</a>
-</body>
-</html>
+{% endblock %}
