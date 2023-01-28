@@ -1,0 +1,17 @@
+<h1>Hello!</h1>
+
+<ul>
+    {% for elem in my_list %}
+        <li>{{ elem }}</li>
+    {% endfor %}
+</ul>
+{% for post in posts %}
+    <a href="{% url 'post-detail' post.id %}">{{ post.title }}</a>
+    <br>
+{% endfor %}
+
+<br>
+<a href="{% url 'about-page' %}">О нас</a>
+<a href="{% url 'contacts-page' %}">Контакты</a>
+
+{% endblock %}

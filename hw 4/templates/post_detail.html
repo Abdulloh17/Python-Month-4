@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+
+<a href="{% url 'about-page' %}">О нас</a>
+<a href="{% url 'contacts-page' %}">Контакты</a>
+<a href="{% url 'main-page' %}">На главную</a>
+{% endblock %}
