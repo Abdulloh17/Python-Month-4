@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Hello!</h1>
+    {% for post in posts %}
+        <a href="{% url 'post-detail' post.id %}">{{ post.title}}</a>
+        <br>
+    {% endfor %}
+    
+    <a href="{% url 'about-page' %}">О нас</a>
+    <a href="{% url 'contacts-page' %}">Контакты</a>
+
+    
+    <form action="{% url 'post-create' %}" method="post">{% csrf_token %}
+        
+
+        <button type="submit">Создать запись</button>
+    </form>
+{% endblock %}
+
