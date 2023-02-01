@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from posts.models import Post, Comment
 from django.views import generic
 from django.urls import reverse_lazy
-from posts.forms import CommentForm
+from posts.forms import CommentForm, PostCreateForm, PostUpdateView
 
 # def index(request):
 #     posts = Post.objects.all()
@@ -23,7 +23,7 @@ from posts.forms import CommentForm
 class AboutView(generic.TemplateView):
     template_name = 'about.html'
     extra_context = {'title': 'О нас'}
-
+ 
 class ContactsView(generic.TemplateView):
     template_name = 'contacts.html' 
     extra_context = {'title': 'Контакты'}
@@ -48,7 +48,7 @@ class PostDetailView(generic.DetailView):
     model = Post
     context_object_name = "post"
     template_name = 'post_detail.html'
-    extra_context = {'from': CommentForm()}
+    extra_context = {'form': CommentForm()}
 
     # def get_context_data(self, **kwargs):
     #     context = super().get_context_data(**kwargs)
@@ -87,7 +87,7 @@ class PostDetailView(generic.DetailView):
 class PostCreateView(generic.CreateView):
     model = Post
     template_name = 'post_create.html'
-    fields = ['title', 'content']
+    form_class = PostCreateForm
     success_url = reverse_lazy('main-page')
 
 class PostDeleteView(generic.DeleteView):
@@ -97,5 +97,5 @@ class PostDeleteView(generic.DeleteView):
 class PostUpdateView(generic.UpdateView):
     model = Post
     template_name = "post_update.html"
-    fields = ["title", "content"]
+    form_class = PostUpdateView
     success_url = reverse_lazy("main-page")

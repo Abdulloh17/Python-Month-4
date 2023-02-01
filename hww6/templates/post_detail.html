@@ -14,7 +14,7 @@
     {% endif %}
 
 
-    {% for comment in post.post_comment.all %}
+    {% for comment in post.post_comment.all %} 
         <h3>{{ comment.name }}</h3>
         <p>{{ comment.text }}</p>
         <h6>{{ comment.created }}</h6>
@@ -22,7 +22,7 @@
     {% endfor %}    
 
     <form action="" method="post">{% csrf_token %}
-        {{ from.as_p }}
+        {{ form.as_p }}
         
         <input type="submit" value="Оставить коммент"> 
         
