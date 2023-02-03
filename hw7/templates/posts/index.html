@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+
+
+{% for post in posts %}
+    <a href="{% url 'post-detail' post.id %}">{{ post.title }}</a>
+    <br>
+{% endfor %}
+
+<br>
+
+    <a href="{% url 'about-page' %}">О нас</a>
+
+{% endblock %}
+
+
+ 
